@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>chat</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<name>chat</name>
 	<description>Demo Spring boot project</description>
 	<url/>
@@ -29,6 +29,7 @@
 	<properties>
 		<java.version>23</java.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -48,7 +49,24 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+		</dependency>
+
+		<dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-configuration-processor</artifactId>
+		  <optional>true</optional>
+		</dependency>
+
+		<dependency>
+		  <groupId>com.h2database</groupId>
+		  <artifactId>h2</artifactId>
+		  <scope>test</scope>
+		</dependency>
 	</dependencies>
+			
 
 	<build>
 		<plugins>
@@ -58,5 +76,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
