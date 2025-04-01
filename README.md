@@ -27,5 +27,6 @@ I wanted to keep the setup simple, so there is a spring boot + postgres backend.
  - ## the API paths and some functionalities need some refining.
  - ## test are not enough and written a bit clunky. Also there are currently only integration tests. I would like to add some more tests that only test a specific part.
  - ## dockerfiles could probably be better
- - I think spring can generate a keypair for the authentication on start up so there is probably no need to have a script for that.
+ - ## I think spring can generate a keypair for the authentication on start up so there is probably no need to have a script for that.
+ - ## all of the API endpoints should return strings.
    
