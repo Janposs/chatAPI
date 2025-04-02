@@ -1,7 +1,6 @@
 # A simple chat app
-I never really build a complete web project, so here I am.
-I wanted to keep the setup simple, so there is a spring boot + postgres backend.
-
+I never really build a complete web project.
+I wanted to keep the setup simple, so this is just spring boot with a postgres database.
 
 # Project scope
 - ## Authentication with JWT
@@ -13,10 +12,10 @@ I wanted to keep the setup simple, so there is a spring boot + postgres backend.
 - ## Secure storage of user account data
 	I want to implement a secure user registration and login system.
 	I'm intentionally ignoring botting and other spam issues here.
-	It is more about user data beeing stored securely.
+	It is more about user data beeing stored in a safe way.
 	
 	### Message encryption
-	I haven't really thought about. It's probably a client siede thing.
+	I haven't really thought about it. It's probably a client siede thing.
 	But the server should have some basic encryption just in case of a databreach.
 
 
@@ -29,3 +28,5 @@ I wanted to keep the setup simple, so there is a spring boot + postgres backend.
  - ## dockerfiles could probably be better
  - ## I think spring can generate a keypair for the authentication on start up so there is probably no need to have a script for that.
    
+ - ## I don't think I need adminer anymore.
+ 
