@@ -31,7 +31,7 @@ public class MessageService {
 	}
 
 	//TODO: how to do encryption? probably client side. maybe some flag so the server knows the message is not encrypted so it can be encrypted server side
-	public String sendMessage(int senderId, MessageRecord message) {
+	public MessageRecord sendMessage(int senderId, MessageRecord message) {
 		validateMessage(senderId, message);
 		Message msg = new Message();
 		msg.setContent(message.content());
@@ -42,7 +42,7 @@ public class MessageService {
 		//this should be done with just the chatService.
 		msg.setDestination(chatService.getChat(message.destinationId()));
 		messageRepo.save(msg);
-		return new MessageRecord(msg).toString();
+		return new MessageRecord(msg);
 	}
 
 	public Message getMessage(int messageId) {
@@ -69,7 +69,8 @@ public class MessageService {
 		messageRepo.deleteById(messageId);
 	}
 
-	public void edit(int userId, MessageRecord message) {
+	//same question as above. How should messages be handled in that case.
+	public MessageRecord edit(int userId, MessageRecord message) {
 		validateMessage(userId, message);
 		var m = messageRepo.findById(message.messageId());
 		if (m.isEmpty()) {
@@ -78,8 +79,10 @@ public class MessageService {
 
 		m.get().setContent(message.content());
 		messageRepo.save(m.get());
+		return new MessageRecord(m.get());
 	}
 
+	//I don't think I need this.
 	public MessageRecord createMessageRecord(int senderId, String content, Instant timestamp, int destinationId) {
 		return new MessageRecord(senderId, content, timestamp, destinationId);
 	}

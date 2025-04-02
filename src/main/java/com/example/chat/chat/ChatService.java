@@ -33,7 +33,7 @@ public class ChatService {
 		return chat.get();
 	}
 	@Transactional
-	public String getMessages(int userId, int chatId, int max) {
+	public ArrayList<MessageRecord> getMessages(int userId, int chatId, int max) {
 		isMember(userId, chatId);
 		Chat c = getChat(chatId);
 		//reverse list to return the newest message at first position
@@ -42,14 +42,14 @@ public class ChatService {
 		if (max >= m.size()) {
 			//return the whole list reversed
 			m.forEach(msg -> ret.add(new MessageRecord(msg)));
-			return ret.toString();
+			return ret;
 		}
 		
 		for (int i = 0; i < max; i++) {
 			ret.add(new MessageRecord(m.get(i)));
 		}
 
-		return ret.toString();
+		return ret;
 		
 	}
 	@Transactional

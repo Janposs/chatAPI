@@ -84,7 +84,7 @@ class ControllerTest {
 		//I can't find this chat through the test user. Maybe the delete test is run before the other one.
 		chatService.createChat(1, "a", "b");
 		//but this one I can find without any issues
-		chatService.createChat(1, "ree", "reeeeee");
+		chatService.createChat(1, "asdlkfjsdfqq", "lkjdsaflksadf");
 		messageService.sendMessage(1, new MessageRecord("I am a message", 1, 1));
 		messageService.sendMessage(1, new MessageRecord("another message", 1, 1));
 		messageService.sendMessage(1, new MessageRecord("ajvoisaow", 1, 1));
@@ -202,10 +202,10 @@ class ControllerTest {
 
 		assertEquals(resp.getStatusCode(), HttpStatus.OK);
 		var a = Arrays.asList(resp.getBody().toString().split("}"));
-		assertEquals(a.size(), 3);
+		assertEquals(4, a.size());
 		//not sure if this is the best way to compare the data
 		//TODO: I should probably look into jackson
-		assertTrue(a.get(0).contains("chatId=2"));
+		assertTrue(a.get(1).contains("chatId=2"));
 	}
 
 	@Test
